@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "vagrant-docker-runner"
 
   # config.vm.box_check_update = false
-  #config.vm.network :forwarded_port, guest: 80, host: 80
+  # Adding host_ip is the secret sauce to allowing connections from outside the ubuntu vm to get to the docker container.
   config.vm.network :forwarded_port, guest: 8080, host: 8080, host_ip: "127.0.0.1"
 
   config.vm.provider "virtualbox" do |vb|
